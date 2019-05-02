@@ -1,6 +1,7 @@
 package tw.core;
 
 import org.junit.Test;
+import tw.core.model.Record;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,10 @@ public class AnswerTest {
 
     @Test
     public void checkTest() {
-
+        Answer answer = createAnswer("8 4 2 1");
+        Answer inputAnswer = createAnswer("4 3 2 1");
+        Record actual = answer.check(inputAnswer);
+        assertEquals("2A1B",actual.getValue());
     }
 
     @Test
