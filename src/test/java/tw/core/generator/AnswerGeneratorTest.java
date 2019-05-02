@@ -28,5 +28,17 @@ public class AnswerGeneratorTest {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void generateTestFailure() {
+        RandomIntGenerator randomIntGenerator = Mockito.mock(RandomIntGenerator.class);
+        when(randomIntGenerator.generateNums(9,4)).thenReturn("8 4 2 1");
+        AnswerGenerator answerGenerator = new AnswerGenerator(randomIntGenerator);
+        try {
+            answerGenerator.generate();
+        } catch (OutOfRangeAnswerException e) {
+            assertEquals(OutOfRangeAnswerException.class,e.getClass());
+        }
+    }
 }
 
