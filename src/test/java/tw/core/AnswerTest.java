@@ -13,7 +13,7 @@ import static tw.core.Answer.*;
  */
 public class AnswerTest {
     @Test
-    public void createAnswerTest(){
+    public void createAnswerTest() {
         String input = "8 4 2 1";
         Answer actual = createAnswer(input);
         Answer expected = new Answer();
@@ -23,16 +23,22 @@ public class AnswerTest {
         list.add("2");
         list.add("1");
         expected.setNumList(list);
-        assertEquals(expected.toString(),actual.toString());
+        assertEquals(expected.toString(), actual.toString());
     }
 
     @Test
-    public void checkTest(){
+    public void checkTest() {
 
     }
 
     @Test
-    public void validateTest(){
-
+    public void validateTest() {
+        String input = "12 12 12 12";
+        Answer actual = createAnswer(input);
+        try {
+            actual.validate();
+        } catch (Exception e) {
+            assertEquals("Answer format is incorrect", e.getMessage());
+        }
     }
 }
